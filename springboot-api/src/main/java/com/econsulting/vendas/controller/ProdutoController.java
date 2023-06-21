@@ -26,13 +26,13 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoService service;
 
-	@PostMapping("/create")
+	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Produto> create(@RequestBody Produto produto) {
 		return new ResponseEntity<Produto>(service.create(produto), HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/update")
+	@PutMapping
 	public ResponseEntity<Produto> update(@RequestBody Produto produto){
 		try {
 			return new ResponseEntity<Produto>( service.update(produto), HttpStatus.OK ) ;
@@ -41,7 +41,7 @@ public class ProdutoController {
 		}
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		service.delete(id);

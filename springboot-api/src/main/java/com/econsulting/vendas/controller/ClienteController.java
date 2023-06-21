@@ -31,13 +31,13 @@ public class ClienteController {
 	@Autowired
 	private ClienteService service;
 
-	@PostMapping("/create")
+	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Cliente> create(@RequestBody Cliente cliente) {
 		return new ResponseEntity<Cliente>(service.create(cliente), HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/update")
+	@PutMapping
 	public ResponseEntity<Cliente> update(@RequestBody Cliente cliente){
 		try {
 			return new ResponseEntity<Cliente>( service.update(cliente), HttpStatus.OK ) ;
@@ -46,7 +46,7 @@ public class ClienteController {
 		}
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		service.delete(id);

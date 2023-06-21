@@ -26,13 +26,13 @@ public class PedidoController {
 	@Autowired
 	private PedidoService service;
 
-	@PostMapping("/create")
+	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Pedido> create(@RequestBody Pedido pedido) {
 		return new ResponseEntity<Pedido>(service.create(pedido), HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/update")
+	@PutMapping
 	public ResponseEntity<Pedido> update(@RequestBody Pedido pedido){
 		try {
 			return new ResponseEntity<Pedido>( service.update(pedido), HttpStatus.OK ) ;
@@ -41,7 +41,7 @@ public class PedidoController {
 		}
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		service.delete(id);

@@ -1,7 +1,8 @@
 function Sobre(){
     return (
         <div>
-            <p>Esta é a página sobre</p>
+            <p>App de demonstração React JS consumindo API Rest</p>
+            <p>Por Elenilson Costa</p>
         </div>
     )
 }
